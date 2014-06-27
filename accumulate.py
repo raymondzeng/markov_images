@@ -14,7 +14,9 @@ acc.fill([])
 
 for filename in os.listdir(dir):
     if 'test_' not in filename:
-        pass
+        continue
+
+    print filename
 
     image = Image.open(os.path.join(dir, filename))
     pixels = image.load()

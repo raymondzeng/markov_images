@@ -11,15 +11,17 @@ def parseRGB(s):
 
 def main():
     data = pickle.load(open('acc.p', 'rb'))
-    created = Image.new("RGB", (101, 100))
+    created = Image.new("RGB", (100, 81))
     pixels = created.load()
 
     for (x,y), value in numpy.ndenumerate(data):
+        if x > 99 or y > 80:
+            continue
         l = Counter(value).most_common(20)
-        color, _ = l[min(15, len(l))]
+        color, _ = l[0] if len(l) > 0 else ('(255, 255, 255)', None)
         pixels[x,y] = parseRGB(color)
         print x, y, color
 
-    created.save(open('temp.png'))
+    created.save(open('temp.png', 'w'))
 
 main()

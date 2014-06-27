@@ -28,9 +28,8 @@ def normalizeImage(image):
 if __name__ == "__main__":
   for filename in os.listdir(dir):
     if 'test_' in filename:
-      pass
+      continue
     image = Image.open(os.path.join(dir, filename))
-    image = Image.open('temp.png')  
     #  image = pixelate(4, image)
     normalizeImage(image)
     image.save(os.path.join(dir, 'test_' + filename.replace('.jpg', '.png')))
