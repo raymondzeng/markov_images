@@ -10,7 +10,7 @@ def parseRGB(s):
     return (int(vals[0]), int(vals[1]), int(vals[2]))
 
 def generate(acc_p, output_path, width, height):
-    data = pickle.load(open(acc_p, 'rb'))
+    data = numpy.load(acc_p)
     created = Image.new("RGB", (width, height))
     pixels = created.load()
 
@@ -24,16 +24,20 @@ def generate(acc_p, output_path, width, height):
 
     created.save(open(output_path, 'w'))
 
-land_in = 'pickles/tnland.p'
-port_in = 'picles/tnport.p'
+land_in = 'acc_data/tnland.npy'
+port_in = 'acc_data/tnport.npy'
 
 land_out = 'tnland.png'
 port_out = 'tnport.png'
 
-lg_land_in = 'pickles/land.p'
+lg_land_in = 'acc_data/land.npy'
+lg_port_in = 'acc_data/port.npy'
+
 lg_land_out = 'land.png'
+lg_port_out = 'port.png'
 
 if __name__ == "__main__":
     #generate(land_in, land_out, 100, 80)
     #generate(port_in, port_out, 80, 100)
-    generate(lg_land_in, lg_land_out, 900, 680)
+    #generate(lg_land_in, lg_land_out, 900, 680)
+    generate(lg_port_in, lg_port_out, 680, 900)
