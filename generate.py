@@ -5,9 +5,13 @@ from PIL import Image
 import os
 
 def accumulate(dir_path, width, height):
-    #acc = numpy.empty([width, height], dtype=list)
-    #acc.fill([])
+    # acc = numpy.empty([width, height], dtype=list)
+    # acc.fill([])
     
+    # for x in range(width):
+    #     for y in range(height):
+    #         acc[x][y] = []
+
     acc = []
     for _ in range(width):
         l = []
@@ -76,5 +80,5 @@ if __name__ == "__main__":
     #main(land_in, land_out, 100, 80)
     #main(port_in, port_out, 80, 100)
     
-    main(lg_land_in, lg_land_out, 900, 680)
-    #main(lg_port_in, lg_port_out, 680, 900)
+    #main(lg_land_in, lg_land_out, 900, 680)
+    main(lg_port_in, lg_port_out, 680, 900)
